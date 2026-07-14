@@ -1,0 +1,680 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ogbo Globaltech Services Ltd | Real Estate Investment Made Simple</title>
+    <meta name="description" content="We help property investors find, build and manage properties. Sourcing, construction, property management — handled end to end.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================================
+           ROOT & RESET
+        ================================ */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --navy: #000080;
+            --navy-dark: #00006a;
+            --navy-mid: #000070;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+            --text-muted: rgba(255, 255, 255, 0.80);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--navy);
+            color: var(--white);
+            line-height: 1.75;
+            overflow-x: hidden;
+        }
+
+        /* ================================
+           TYPOGRAPHY
+        ================================ */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 700; }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem);  font-weight: 600; }
+        h3 { font-size: 1.1rem; font-weight: 600; }
+
+        p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* ================================
+           NAVIGATION
+        ================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--navy);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            z-index: 1000;
+            padding: 0 5%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            line-height: 1.35;
+            max-width: 180px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.65;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--gold);
+            transition: all 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--navy-dark);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 1.5rem 5%;
+            z-index: 999;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .mobile-menu a {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* ================================
+           CTA BUTTON
+        ================================ */
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--navy);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.9rem 2.25rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            transition: background-color 0.25s, color 0.25s;
+        }
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        /* ================================
+           SHARED SECTION STYLES
+        ================================ */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-label {
+            display: block;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.6rem;
+        }
+
+        .gold-rule {
+            width: 56px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 1.25rem 0 2.5rem 0;
+        }
+
+        .section-cta {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* ================================
+           HERO SECTION
+        ================================ */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: calc(70px + 5rem);
+            padding-bottom: 5rem;
+            background: linear-gradient(140deg, #000080 0%, #00006a 55%, #000055 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative concentric rings */
+        #home::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 550px;
+            height: 550px;
+            border: 1px solid rgba(255, 215, 0, 0.07);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        #home::after {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 380px;
+            height: 380px;
+            border: 1px solid rgba(255, 215, 0, 0.11);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 720px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-inner h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-inner h1 .gold-text {
+            color: var(--gold);
+        }
+
+        .hero-inner p {
+            font-size: 1.075rem;
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+            line-height: 1.8;
+        }
+
+        /* ================================
+           SERVICES SECTION
+        ================================ */
+        #services {
+            background-color: var(--navy-mid);
+        }
+
+        .services-intro {
+            max-width: 580px;
+            margin-bottom: 2.5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            border-left: 4px solid var(--gold);
+            padding: 2rem;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .service-card h3 {
+            color: var(--gold);
+            margin-bottom: 0.65rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+        }
+
+        /* ================================
+           ABOUT US SECTION
+        ================================ */
+        #about {
+            background-color: var(--navy);
+        }
+
+        .about-inner {
+            max-width: 680px;
+        }
+
+        .about-inner p {
+            margin-bottom: 1.4rem;
+            line-height: 1.85;
+        }
+
+        .about-inner p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .about-cta {
+            margin-top: 2.5rem;
+        }
+
+        /* ================================
+           WHY CHOOSE US SECTION
+        ================================ */
+        #why-choose-us {
+            background-color: var(--navy-mid);
+        }
+
+        .why-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            border-left: 4px solid var(--gold);
+            padding: 1.65rem 2rem;
+            display: grid;
+            grid-template-columns: 210px 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            transition: background 0.25s ease;
+        }
+
+        .why-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .why-card h3 {
+            color: var(--gold);
+            font-size: 1rem;
+            line-height: 1.35;
+        }
+
+        .why-card p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* ================================
+           CONTACT SECTION
+        ================================ */
+        #contact {
+            background-color: var(--navy);
+        }
+
+        .contact-inner {
+            max-width: 620px;
+        }
+
+        .contact-intro {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.45rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background-color: #ffffff;
+            color: var(--navy);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            border: 2px solid transparent;
+            padding: 0.85rem 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            -webkit-appearance: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(0, 0, 128, 0.4);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-submit {
+            margin-top: 1.75rem;
+        }
+
+        .form-submit .cta-btn {
+            border: none;
+            font-size: 0.85rem;
+        }
+
+        /* ================================
+           FOOTER
+        ================================ */
+        footer {
+            background-color: var(--navy-dark);
+            border-top: 1px solid rgba(255, 215, 0, 0.15);
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.875rem;
+            color: var(--gold);
+            margin: 0;
+        }
+
+        /* ================================
+           SCROLL FADE-IN ANIMATION
+        ================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================================
+           RESPONSIVE — TABLET
+        ================================ */
+        @media (max-width: 900px) {
+            .why-card {
+                grid-template-columns: 180px 1fr;
+            }
+        }
+
+        /* ================================
+           RESPONSIVE — MOBILE
+        ================================ */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            section {
+                padding: 4.5rem 5%;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-card {
+                grid-template-columns: 1fr;
+                gap: 0.4rem;
+            }
+
+            .section-cta {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.85rem; }
+            h2 { font-size: 1.6rem; }
+
+            .hero-inner p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================================
+     NAVIGATION
+================================ -->
+<nav>
+    <a href="#home" class="nav-logo">Ogbo Globaltech<br>Services Ltd.</a>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why-choose-us">Why Choose Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="#home" class="mobile-link">Home</a></li>
+        <li><a href="#services" class="mobile-link">Services</a></li>
+        <li><a href="#about" class="mobile-link">About Us</a></li>
+        <li><a href="#why-choose-us" class="mobile-link">Why Choose Us</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+</div>
+
+
+<!-- ================================
+     HERO SECTION
+================================ -->
+<section id="home">
+    <div class="hero-inner fade-in">
+        <span class="section-label">Real Estate Investment</span>
+        <h1>Find. Build. Manage.<br><span class="gold-text">One Team. End to End.</span></h1>
+        <div class="gold-rule"></div>
+        <p>We help property investors handle everything from sourcing and construction to property management; with honest guidance, local expertise, and affordable solutions.</p>
+
+        <!-- TO DO: Replace 000000000000 with your number in format 234XXXXXXXXXX -->
+        <a href="https://wa.me/000000000000" class="cta-btn" target="_blank" rel="noopener">Book a Session</a>
+    </div>
+</section>
+
+
+<!-- ================================
+     SERVICES SECTION
+================================ -->
+<section id="services">
+    <span class="section-label">What We Do</span>
+    <h2 class="section-heading fade-in">Our Services</h2>
+    <div class="gold-rule"></div>
+    <p class="services-intro fade-in">From finding the right property to managing it long-term — we cover every stage of your investment journey.</p>
+
+    <div class="services-grid">
+        <div class="service-card fade-in">
+            <h3>Property Sourcing</h3>
+            <p>We find houses and land that match your budget and goals.</p>
+        </div>
+        <div class="service-card fade-in">
+            <h3>Construction</h3>
+            <p>End-to-end building support from foundation to finishing.</p>
+        </div>
+        <div class="service-card fade-in">
+            <h3>Property Management</h3>
+            <p>We handle tenants, maintenance, and everything in between.</p>
+        </div>
+        <div class="service-card fade-in">
+            <h3>Investment Advisory</h3>
+            <p>Honest guidance on where and how to invest in this market.</p>
+        </div>
+    </div>
+
+    <div class="section-cta fade-in">
+        <!-- TO DO: Replace 000000000000 with your number in format 234XXXXXXXXXX -->
+        <a href="https://wa.me/2347030580631" class="cta-btn" target="_blank" rel="noopener">Talk to Us About Your Needs</a>
+    </div>
+</section>
+
+
+<!-- ================================
+     ABOUT US SECTION
+================================ -->
+<section id="about">
+    <span class="section-label">Who We Are</span>
+    <h2 class="section-heading fade-in">About Us</h2>
+    <div class="gold-rule"></div>
+
+    <div class="about-inner">
+        <p class="fade-in">At Ogbo Globaltech Services Ltd, we help property investors find, build, and manage properties — without the usual stress.</p>
+        <p class="fade-in">Whether you're a first-time investor or looking to expand your portfolio, we make the process simple. From sourcing properties for sale or lease to handling the details in between, our deep-rooted connection with the local community helps us find the right opportunities — faster and more efficiently.</p>
+        <p class="fade-in">Work with us at Ogbo Globaltech Services Ltd, and let's help you find, build, or manage your next property.</p>
+    </div>
+
+    <div class="about-cta fade-in">
+        <!-- TO DO: Replace 000000000000 with your number in format 234XXXXXXXXXX -->
+        <a href="https://wa.me/2347030580631" class="cta-btn" target="_blank" rel="noopener">Work With Us</a>
+    </div>
+</section>
+
+
+<!-- ================================
+     WHY CHOOSE US SECTION
+================================ -->
+<section id="why-choose-us">
+    <span class="section-label">Our Difference</span>
+    <h2 class="section-heading fade-in">Why Choose Us</h2>
+    <div class="gold-rule"></div>
+
+    <div class="why-grid">
+        <div class="why-card fade-in">
+            <h3>One team, zero handoffs</h3>
+            <p>You deal with us directly. No third-party agents, no referral chains.</p>
+        </div>
+        <div class="why-card fade-in">
+            <h3>Built for local investors</h3>
+            <p>We know this market from the ground up, not from data sheets.</p>
+        </div>
+        <div class="why-card fade-in">
+            <h3>Transparent pricing</h3>
+            <p>No hidden fees. What we quote is what you pay.</p>
+        </div>
+        <div class="why-card fade-in">
+            <h3>WhatsApp-first communication</h3>
+            <p>Reach us when it matters, not during office hours only.</p>
+        </div>
+        <div class="why-card fade-in">
+            <h3>End-to-end execution</h3>
+            <p>We don't consult and leave. We stay in until the job is done.</p>
+        </div>
+    </div>
+
+    <div class="section-cta fade-in">
+        <!-- TO DO: Replace 000000000000 with your number in format 234XXXXXXXXXX -->
+        <a href="https://wa.me/2347030580631" class="cta-btn" target="_blank" rel="noopener">Start Your Investment Journey</a>
+    </div>
+</section>
+
+
+<!-- ================================
+     CONTACT SECTION
+================================ -->
+<section id="contact">
+    <span class="section-label">Get In Touch</span>
+    <h2 class="section-headin
